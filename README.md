@@ -14,9 +14,21 @@ Start the react native program `npm start or yarn start`
 
 Run on either ios or android `react-native run-ios` or `react-native run-android`
 
-## Custom Packages
+## Packages
 
+Custom Packages
 - react-navigation
+
+Testing Packages
+- jest
+- react-test-renderer
+- babel-jest
+- pre-commit
+
+React Packages
+- react
+- react-native
+- babel-preset-react-native
 
 ## Git workflow
 
