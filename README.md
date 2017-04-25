@@ -18,6 +18,7 @@ Run on either ios or android `react-native run-ios` or `react-native run-android
 
 Custom Packages
 - react-navigation
+- react-native-form-generator
 
 Testing Packages
 - jest
