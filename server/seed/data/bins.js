@@ -1,79 +1,56 @@
-{
-    Manchester: {
-        plastic: 'brown',
-        paper: 'blue',
-        metal: 'brown',
-        glass: 'brown',
-        garden: 'green',
-        nonrecyclable: 'grey'
-    },
-    Bolton: {
-        plastic:  'burgundy',
-        paper:  'beige',
-        metal:  'burgundy',
-        glass: 'burgundy',
-        garden: 'green',
-        non-recyclable: 'grey'
-    },
-    Salford: {
-        plastic:  'brown',
-        paper:  'blue',
-        metal:  'brown',
-        glass: 'brown',
-        garden: 'pink',
-        non-recyclable: 'black'
-    },
-    Wigan: {
-        plastic:  'brown',
-        paper:  'blue',
-        metal:  'brown',
-        glass: 'brown',
-        garden: 'green',
-        non-recyclable: 'black'
-    },
-    Bury: {
-        plastic:  'blue',
-        paper:  'green',
-        metal:  'blue',
-        glass: 'blue',
-        garden: 'brown',
-        non-recyclable: 'grey'
-    },
-    Oldham: {
-        plastic:  'brown',
-        paper:  'blue',
-        metal:  'brown',
-        glass: 'brown',
-        garden: 'green',
-        non-recyclable: 'grey'
-    },
-    Trafford: {
-        plastic:  'black',
-        paper:  'blue',
-        metal:  'black',
-        glass: 'black',
-        garden: 'green',
-        non-recyclable: 'grey'
-    },
-    Tameside: {
-        plastic:  'black',
-        paper:  'blue',
-        metal:  'black',
-        glass: 'black',
-         garden: 'brown',
-        non-recyclable: 'green'
-    },
-    Stockport: {
-        plastic:  'brown',
-        paper:  'blue',
-        metal:  'brown',
-        glass: 'brown',
-        garden: 'green',
-        non-recyclable: 'black'
-    },
-}
-
-
-// GET api/:council/bins
-// GET api/:council/collection
-// GET api/recyclingcentres
+[
+    { council: 'manchester', packaging: 'plastic', bin: 'brown' },
+    { council: 'manchester', packaging: 'paper', bin: 'blue' },
+    { council: 'manchester', packaging: 'metal', bin: 'brown' },
+    { council: 'manchester', packaging: 'glass', bin: 'brown' },
+    { council: 'manchester', packaging: 'garden', bin: 'green' },
+    { council: 'manchester', packaging: 'non-recyclable', bin: 'grey' },
+    { council: 'bolton', packaging: 'plastic', bin: 'burgundy' },
+    { council: 'bolton', packaging: 'paper', bin: 'beige' },
+    { council: 'bolton', packaging: 'metal', bin: 'burgundy' },
+    { council: 'bolton', packaging: 'glass', bin: 'burgundy' },
+    { council: 'bolton', packaging: 'garden', bin: 'green' },
+    { council: 'bolton', packaging: 'non-recyclable', bin: 'grey' },
+    { council: 'salford', packaging: 'plastic', bin: 'brown' },
+    { council: 'salford', packaging: 'paper', bin: 'blue' },
+    { council: 'salford', packaging: 'metal', bin: 'brown' },
+    { council: 'salford', packaging: 'glass', bin: 'brown' },
+    { council: 'salford', packaging: 'garden', bin: 'pink' },
+    { council: 'salford', packaging: 'non-recyclable', bin: 'black' },
+    { council: 'wigan', packaging: 'plastic', bin: 'brown' },
+    { council: 'wigan', packaging: 'paper', bin: 'blue' },
+    { council: 'wigan', packaging: 'metal', bin: 'brown' },
+    { council: 'wigan', packaging: 'glass', bin: 'brown' },
+    { council: 'wigan', packaging: 'garden', bin: 'green' },
+    { council: 'wigan', packaging: 'non-recyclable', bin: 'black' },
+    { council: 'bury', packaging: 'plastic', bin: 'blue' },
+    { council: 'bury', packaging: 'paper', bin: 'green' },
+    { council: 'bury', packaging: 'metal', bin: 'blue' },
+    { council: 'bury', packaging: 'glass', bin: 'blue' },
+    { council: 'bury', packaging: 'garden', bin: 'brown' },
+    { council: 'bury', packaging: 'non-recyclable', bin: 'grey' },
+    { council: 'oldham', packaging: 'plastic', bin: 'brown' },
+    { council: 'oldham', packaging: 'paper', bin: 'blue' },
+    { council: 'oldham', packaging: 'metal', bin: 'brown' },
+    { council: 'oldham', packaging: 'glass', bin: 'brown' },
+    { council: 'oldham', packaging: 'garden', bin: 'green' },
+    { council: 'oldham', packaging: 'non-recyclable', bin: 'grey' },
+    { council: 'trafford', packaging: 'plastic', bin: 'black' },
+    { council: 'trafford', packaging: 'paper', bin: 'blue' },
+    { council: 'trafford', packaging: 'metal', bin: 'black' },
+    { council: 'trafford', packaging: 'glass', bin: 'black' },
+    { council: 'trafford', packaging: 'garden', bin: 'green' },
+    { council: 'trafford', packaging: 'non-recyclable', bin: 'grey' },
+    { council: 'tameside', packaging: 'plastic', bin: 'black' },
+    { council: 'tameside', packaging: 'paper', bin: 'blue' },
+    { council: 'tameside', packaging: 'metal', bin: 'black' },
+    { council: 'tameside', packaging: 'glass', bin: 'black' },
+    { council: 'tameside', packaging: 'garden', bin: 'brown' },
+    { council: 'tameside', packaging: 'non-recyclable', bin: 'green' },
+    { council: 'stockport', packaging: 'plastic', bin: 'brown' },
+    { council: 'stockport', packaging: 'paper', bin: 'blue' },
+    { council: 'stockport', packaging: 'metal', bin: 'brown' },
+    { council: 'stockport', packaging: 'glass', bin: 'brown' },
+    { council: 'stockport', packaging: 'garden', bin: 'green' },
+    { council: 'stockport', packaging: 'non-recyclable', bin: 'black' }
+];
