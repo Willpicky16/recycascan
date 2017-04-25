@@ -3,7 +3,8 @@ import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import Camera from 'react-native-camera';
 import axios from 'axios';
 
-const ROOT = 'https://gentle-escarpment-88131.herokuapp.com/api/products';
+// const ROOT = 'https://gentle-escarpment-88131.herokuapp.com/api/products';
+const ROOT = 'https://world.openfoodfacts.org/api/v0/product/';
 
 export default class Barcode extends Component {
   scanBarcode (data) {
@@ -25,10 +26,11 @@ function getName (EAN) {
   axios
     .get(`${ROOT}/${EAN}`)
     .then(function scanBarcode (data) {
-      alert(`${data.data.products[0].name} (${EAN}) Packaging: ${data.data.products[0].packaging}`)
+      // alert(`${data.data.products[0].name} (${EAN}) Packaging: ${data.data.products[0].packaging}`)
+      alert(`${data.data.product.product_name} (${EAN}) Packaging: ${data.data.product.packaging}`)
     })
     .catch(function (err) {
-      alert(EAN)
+      alert(`PRODUCT ${EAN} DOES NOT EXIST`)
     })
 };
 
