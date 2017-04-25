@@ -16,7 +16,7 @@ Run on either ios or android `react-native run-ios` or `react-native run-android
 
 ## Custom Packages
 
-- EXAMPLE PACKAGE
+- react-navigation
 
 ## Git workflow
 
