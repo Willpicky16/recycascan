@@ -31,3 +31,8 @@ Push your work to the specific branch for example `git push origin feat-1`
 Open a pull request for that branch
 
 Someone checks the code and either approves or request a redo
+
+## Links
+
+Github repository: https://github.com/Willpicky16/recycascan
+Trello board: https://trello.com/b/SG5Gh0lH/recycascan-kanban-board
