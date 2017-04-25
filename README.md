@@ -35,4 +35,5 @@ Someone checks the code and either approves or request a redo
 ## Links
 
 Github repository: https://github.com/Willpicky16/recycascan
+
 Trello board: https://trello.com/b/SG5Gh0lH/recycascan-kanban-board
