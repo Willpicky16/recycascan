@@ -1,4 +1,4 @@
-[
+module.exports = [
     { council: 'manchester', packaging: 'plastic', bin: 'brown' },
     { council: 'manchester', packaging: 'paper', bin: 'blue' },
     { council: 'manchester', packaging: 'metal', bin: 'brown' },
