@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import Camera from 'react-native-camera';
 import axios from 'axios';
+import _ from 'underscore';
 
 // const ROOT = 'https://gentle-escarpment-88131.herokuapp.com/api/products';
 const ROOT = 'https://world.openfoodfacts.org/api/v0/product/';
+const scanned = {};
 
 export default class Barcode extends Component {
   scanBarcode (data) {
+    if (scanned[data.data]) return;
+    scanned[data.data] = true;
     let EAN = data.data;
     this.props.navigation.navigate('Recycable', {code: EAN});
   }
