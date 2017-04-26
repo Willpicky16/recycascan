@@ -11,7 +11,7 @@ const async = require('async');
 const log4js = require('log4js');
 const logger = log4js.getLogger();
 
-mongoose.connect('mongodb://localhost/recycascan', function (err) {
+mongoose.connect('mongodb://user:password@ds055915.mlab.com:55915/recycascan', function (err) {
   if (!err) {
     // logger.info(`connected to database ${DBs.dev}`);
     mongoose.connection.db.dropDatabase();
