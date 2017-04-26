@@ -1,4 +1,4 @@
-[
+module.exports = [
     {
         council: 'oldham',
         day: 26,
@@ -1011,7 +1011,7 @@
     {
         day: 18,
         month: 'July',
-        year: NaN,
+        year: 2017,
         bins: ['grey'],
         council: 'bury'
     },
