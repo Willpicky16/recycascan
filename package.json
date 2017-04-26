@@ -6,7 +6,7 @@
 		"start": "node node_modules/react-native/local-cli/cli.js start",
 		"test": "jest -u",
 		"pre-commit": "test",
-		"dev": "nodemon server/server.js",
+		"dev": "node server/server.js",
     "seed": "node server/seed/seed.js"
 	
   },
