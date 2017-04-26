@@ -2,8 +2,7 @@ module.exports = [
 
     { postcode: "M1", council: "Manchester" },
     { postcode: "M2", council: "Manchester" },
-    { postcode: "M3 Sectors 1, 2, 3, 4, 9", council: "Manchester" },
-    { postcode: "M3 Sectors 5, 6, 7", council: "Salford" },
+    { postcode: "M3", council: "Manchester" },
     { postcode: "M4", council: "Manchester" },
     { postcode: "M5", council: "Salford" },
     { postcode: "M6", council: "Salford" },
@@ -43,8 +42,7 @@ module.exports = [
     { postcode: "M45", council: "Bury" },
     { postcode: "M46", council: "Wigan" },
     { postcode: "M50", council: "Salford" },
-    { postcode: "M60 Sectors 0 to 8", council: "Manchester" },
-    { postcode: "M60 Sector 9", council: "Salford" },
+    { postcode: "M60", council: "Manchester" },
     { postcode: "M61", council: "Manchester" },
     { postcode: "M90", council: "Manchester" },
     { postcode: "M99", council: "Manchester" }
