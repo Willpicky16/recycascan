@@ -11,12 +11,140 @@ exports[`home page renders correctly 1`] = `
     }
   }
 >
-  <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
-  >
-    Home
-  </Text>
+  <View>
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "flex": 1,
+          "fontSize": 20,
+        }
+      }
+    >
+      Welcome to RecycaScan!
+    </Text>
+    <View
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <View
+        style={undefined}
+      >
+        <View>
+          <View
+            accessibilityComponentType={undefined}
+            accessibilityLabel={undefined}
+            accessibilityTraits={undefined}
+            accessible={true}
+            hasTVPreferredFocus={undefined}
+            hitSlop={undefined}
+            isTVSelectable={true}
+            onLayout={undefined}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                undefined,
+              ]
+            }
+            testID={undefined}
+            tvParallaxProperties={undefined}
+          >
+            <View>
+              <View
+                onLayout={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "white",
+                      "borderBottomColor": "#C8C7CC",
+                      "borderBottomWidth": 1,
+                      "height": 45,
+                      "justifyContent": "center",
+                    },
+                    Object {
+                      "flexDirection": "row",
+                      "justifyContent": "flex-start",
+                    },
+                    undefined,
+                  ]
+                }
+              >
+                <Text
+                  accessible={true}
+                  allowFontScaling={true}
+                  ellipsizeMode="tail"
+                  style={
+                    Array [
+                      Object {
+                        "fontSize": 17,
+                        "justifyContent": "center",
+                        "lineHeight": 32,
+                        "paddingLeft": 10,
+                        "paddingRight": 10,
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  Please enter your postcode:
+                </Text>
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "marginTop": 7,
+                        "position": "absolute",
+                        "right": 10,
+                      },
+                      Object {
+                        "flexDirection": "row",
+                        "justifyContent": "flex-start",
+                      },
+                      undefined,
+                    ]
+                  }
+                >
+                  <Text
+                    accessible={true}
+                    allowFontScaling={true}
+                    ellipsizeMode="tail"
+                    style={
+                      Array [
+                        Object {
+                          "color": "#C7C7CC",
+                          "fontSize": 17,
+                          "justifyContent": "center",
+                          "marginRight": 10,
+                          "paddingLeft": 10,
+                          "paddingRight": 10,
+                          "paddingTop": 4,
+                        },
+                        undefined,
+                      ]
+                    }
+                  >
+                    
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
 </View>
 `;
