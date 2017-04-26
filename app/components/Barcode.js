@@ -8,7 +8,8 @@ const ROOT = 'https://world.openfoodfacts.org/api/v0/product/';
 
 export default class Barcode extends Component {
   scanBarcode (data) {
-    getName(data.data);
+    let EAN = data.data;
+    this.props.navigation.navigate('Recycable', {code: EAN});
   }
   render () {
     return (
