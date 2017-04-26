@@ -7,4 +7,4 @@ const binSchema = new Schema({
     bin: String
 });
 
-module.exports = mongoose.model('recycascan', binSchema);
+module.exports = mongoose.model('bins', binSchema);
