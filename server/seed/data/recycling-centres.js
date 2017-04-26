@@ -1,4 +1,4 @@
-[
+module.exports = [
   {
     name: 'Longley Lane Recycling Centre',
     address: 'Longley Lane Recycling Centre, Longley Lane, Sharston, M22 4RQ',
@@ -49,4 +49,4 @@
     address: 'Cemetery Road Recycling Centre, Cemetery Road, Radcliffe, M26 4FT',
     postcode: 'M26 4FT'
   }
-]
+];

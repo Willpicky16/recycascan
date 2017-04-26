@@ -3,27 +3,11 @@ const BinDoc = require('../models/bins');
 const binData = require('./data/bins.js');
 const CollectionDoc = require('../models/collections');
 const collectionData = require('./data/collections.js');
+const RecyclingCentreDoc = require('../models/recycling-centres');
+const recyclingCentreData = require('./data/recycling-centres.js');
 const async = require('async');
 const log4js = require('log4js');
 const logger = log4js.getLogger();
-
-
-// mongoose.connect('mongodb://localhost/recycascan', function (error) {
-//     if (error) {
-//         console.log(error);
-//         return process.exit();
-//     }
-//     console.log(binData);
-//     binData.forEach(function (bin, i) {
-//         let binDoc = new BinDoc(bin);
-//         binDoc.save(function (error, doc) {
-//             if (error) {
-//                 return console.log(error);
-//             }
-//             console.log(`Council ${i} ${bin.council} saved to db!`);
-//         });
-//     });
-// });
 
 mongoose.connect('mongodb://localhost/recycascan', function (err) {
   if (!err) {
@@ -31,7 +15,8 @@ mongoose.connect('mongodb://localhost/recycascan', function (err) {
     mongoose.connection.db.dropDatabase();
     async.waterfall([
       addBins,
-      addCollections
+      addCollections,
+      addRecyclingCentres
     ], function (err) {
       if (err) {
         logger.error('ERROR SEEDING :O');
@@ -69,6 +54,22 @@ function addCollections(done) {
   async.eachSeries(collectionData, function (collection, cb) {
     let collectionDoc = new CollectionDoc(collection);
     collectionDoc.save(function (err) {
+      if (err) {
+        return cb(err);
+      }
+      return cb();
+    });
+  }, function (error) {
+    if (error) return done(error);
+    return done(null)
+  })
+}
+
+function addRecyclingCentres(done) {
+  logger.info('adding recycling centres')
+  async.eachSeries(recyclingCentreData, function (centre, cb) {
+    let recyclingCentreDoc = new RecyclingCentreDoc(centre);
+    recyclingCentreDoc.save(function (err) {
       if (err) {
         return cb(err);
       }
