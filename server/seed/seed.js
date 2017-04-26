@@ -5,6 +5,8 @@ const CollectionDoc = require('../models/collections');
 const collectionData = require('./data/collections.js');
 const RecyclingCentreDoc = require('../models/recycling-centres');
 const recyclingCentreData = require('./data/recycling-centres.js');
+const postcodeData = require('./data/postcodes.js');
+const PostcodeDoc = require('../models/postcodes');
 const async = require('async');
 const log4js = require('log4js');
 const logger = log4js.getLogger();
@@ -16,7 +18,8 @@ mongoose.connect('mongodb://localhost/recycascan', function (err) {
     async.waterfall([
       addBins,
       addCollections,
-      addRecyclingCentres
+      addRecyclingCentres,
+      addPostcodes
     ], function (err) {
       if (err) {
         logger.error('ERROR SEEDING :O');
@@ -70,6 +73,22 @@ function addRecyclingCentres(done) {
   async.eachSeries(recyclingCentreData, function (centre, cb) {
     let recyclingCentreDoc = new RecyclingCentreDoc(centre);
     recyclingCentreDoc.save(function (err) {
+      if (err) {
+        return cb(err);
+      }
+      return cb();
+    });
+  }, function (error) {
+    if (error) return done(error);
+    return done(null)
+  })
+}
+
+function addPostcodes(done) {
+  logger.info('adding postcodes')
+  async.eachSeries(postcodeData, function (code, cb) {
+    let postcodeDoc = new PostcodeDoc(code);
+    postcodeDoc.save(function (err) {
       if (err) {
         return cb(err);
       }
