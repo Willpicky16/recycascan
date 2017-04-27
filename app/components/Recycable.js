@@ -22,7 +22,7 @@ export default class Recycable extends Component {
         });
       })
       .catch(err => {
-        alert(`PRODUCT ${EAN} DOES NOT EXIST`);
+        this.props.navigation.navigate('ProductSubmit', {code: this.props.navigation.state.params.code});
       });
   }
   render() {
