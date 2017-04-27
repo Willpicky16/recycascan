@@ -6,6 +6,7 @@ import Barcode from '../components/Barcode';
 import Calendar from '../components/Calendar';
 import Map from '../components/Map';
 import Recycable from '../components/Recycable';
+import ProductSubmit from '../components/ProductSubmit';
 
 export const BarcodeStack = StackNavigator({
   Barcode: {
@@ -14,6 +15,10 @@ export const BarcodeStack = StackNavigator({
   Recycable: {
     screen: Recycable,
     path: 'recycable/:code'
+  },
+  ProductSubmit: {
+    screen: ProductSubmit,
+    path: 'ProductSubmit/:code'
   }
 })
 
