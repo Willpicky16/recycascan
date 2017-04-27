@@ -9,7 +9,7 @@ export default class Home extends Component {
     super(props);
     this.state = {}
   }
-  
+
   handleFormChange(data) {
     this.setState({
       postcode: data.postcode
@@ -17,6 +17,9 @@ export default class Home extends Component {
   }
   onButtonPress() {
     postcodeToCouncil(this.state.postcode);
+  }
+  onButtonClear() {
+    AsyncStorage.clear();
   }
   render () {
     return (
@@ -26,6 +29,7 @@ export default class Home extends Component {
           <InputField ref="postcode" placeholder="Postcode" helpText="Enter your postcode" />
         </Form>
         <Button title="Submit" onPress={this.onButtonPress.bind(this)} color="#841584" accessibilityLabel="Submit"/>
+        <Button title="Clear" onPress={this.onButtonClear.bind(this)} color="red" accessibilityLabel="Submit"/>
       </View>
     )
   }
@@ -34,7 +38,7 @@ export default class Home extends Component {
 
 function postcodeToCouncil (str) {
 
-    if (str.length > 7 || str.length < 5) console.log('Invalid postcode');
+    if (str.length > 7 || str.length < 5) alert('Invalid postcode');
     let code;
     // if theres space in the input
     if (str.match(/\s/)) {
@@ -53,8 +57,8 @@ function postcodeToCouncil (str) {
     .catch(function (err) {
         console.log(err);
     });
-    
-    
+
+
 }
 
 
