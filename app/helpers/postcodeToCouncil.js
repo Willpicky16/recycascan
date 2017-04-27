@@ -51,7 +51,7 @@ import axios from 'axios';
 
 function postcodeToCouncil (str) {
 
-    if (str.length > 7 || str.length < 5) console.log('Invalid postcode'); return;
+    if (str.length > 7 || str.length < 5) return 'Invalid postcode';
     let code;
     // if theres space in the input
     if (str.match(/\s/)) {
@@ -64,7 +64,7 @@ function postcodeToCouncil (str) {
     axios
     .get('https://vast-eyrie-43528.herokuapp.com/api/postcodes')
     .then(function (res) {
-        console.log(res.data.postcode.find(key => key.postcode === code).council);
+        return res.data.postcode.find(key => key.postcode === code).council;
     })
     .catch(function (err) {
         console.log(err);
