@@ -1,36 +1,36 @@
 {
-	"name": "recycascan",
-	"version": "0.0.1",
-	"private": true,
-	"scripts": {
-		"start": "node node_modules/react-native/local-cli/cli.js start",
-		"test": "jest -u",
-		"pre-commit": "test",
-		"dev": "node server/server.js",
+  "name": "recycascan",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest -u",
+    "pre-commit": "test",
+    "dev": "node server/server.js",
     "seed": "node server/seed/seed.js"
-	
   },
   "dependencies": {
     "async": "^2.3.0",
+    "axios": "^0.16.1",
     "express": "^4.15.2",
     "log4js": "^1.1.1",
     "mongoose": "^4.9.6",
-		"axios": "^0.16.1",
-		"react": "16.0.0-alpha.6",
-		"react-native": "0.43.4",
-		"react-native-camera": "^0.7.0",
-		"react-native-form-generator": "^0.9.9",
-		"react-navigation": "^1.0.0-beta.8",
-		"underscore": "^1.8.3"
-	},
-	"devDependencies": {
-		"babel-jest": "19.0.0",
-		"babel-preset-react-native": "1.9.1",
-		"jest": "19.0.2",
-		"pre-commit": "^1.2.2",
-		"react-test-renderer": "16.0.0-alpha.6"
-	},
-	"jest": {
-		"preset": "react-native"
-	}
+    "react": "16.0.0-alpha.6",
+    "react-native": "0.43.4",
+    "react-native-camera": "^0.7.0",
+    "react-native-form-generator": "^0.9.9",
+    "react-native-maps": "^0.14.0",
+    "react-navigation": "^1.0.0-beta.8",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "babel-jest": "19.0.0",
+    "babel-preset-react-native": "1.9.1",
+    "jest": "19.0.2",
+    "pre-commit": "^1.2.2",
+    "react-test-renderer": "16.0.0-alpha.6"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
 }

@@ -18,5 +18,10 @@ exports[`calendar page renders correctly 1`] = `
   >
     Calendar
   </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+  />
 </View>
 `;
