@@ -21,6 +21,7 @@ Custom Packages
 - react-native-form-generator
 - react-native-camera
 - axios
+- react-native-restart
 
 Testing Packages
 - jest
