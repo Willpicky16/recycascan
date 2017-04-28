@@ -4,26 +4,20 @@ import { StyleSheet, Text, View, AsyncStorage } from 'react-native';
 export default class Calendar extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      userDetails: {},
-      detailsRecieved: false
-    }
+    this.state = {}
   }
 
   componentDidMount() {
-        AsyncStorage.getItem('userDetails', (err, result) => {
-          let val = JSON.parse(result)
-          this.setState({
-            userDetails: val,
-            detailsRecieved: true
-          });
-        });
+        AsyncStorage.getItem("council").then((value) => {
+            this.setState({council: value});
+        }).done();
     }
 
   render () {
     return (
       <View style={styles.container}>
         <Text>Calendar</Text>
+        <Text>{this.state.council}</Text>
       </View>
     )
   }

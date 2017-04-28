@@ -9,25 +9,21 @@ export default class Recycable extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userDetails: {},
+      council: '',
       product: {},
       bin: '',
       loading: true
     };
   }
   componentDidMount() {
-    AsyncStorage.getItem('userDetails', (err, result) => {
-      let val = JSON.parse(result)
-      this.setState({
-        userDetails: val,
-        detailsRecieved: true
-      });
-    });
+    AsyncStorage.getItem("council").then((value) => {
+        this.setState({council: value});
+    }).done();
     axios
       .get(`${ROOT}/${this.props.navigation.state.params.code}`)
       .then(res => {
         axios
-          .get(`${BINROOT}?packaging=${res.data.product.packaging}&council=${this.state.userDetails.council}`)
+          .get(`${BINROOT}?packaging=${res.data.product.packaging}&council=${this.state.council}`)
           .then((res) => {
             this.setState({
               bin: res.data.bins[0].bin,
