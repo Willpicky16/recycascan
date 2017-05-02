@@ -13,7 +13,8 @@ export default class Map extends Component {
         longitude: 0,
         latitudeDelta: 0.0922,
         longitudeDelta: 0.0421
-      }
+      },
+      centres: []
     }
   }
   componentDidMount() {
@@ -25,8 +26,6 @@ export default class Map extends Component {
         axios
           .get(`http://postcodes.io/postcodes/${this.state.userDetails.postcode}`)
           .then((res) => {
-            console.log(res.data.result.latitude);
-            console.log(res.data.result.longitude);
             this.setState({
               region: {
                 latitude: res.data.result.latitude,
@@ -41,26 +40,35 @@ export default class Map extends Component {
           });
       });
     });
+    axios
+      .get('https://vast-eyrie-43528.herokuapp.com/api/recyclingcentres')
+      .then((res) => {
+        this.setState ({
+          centres: res.data.recyclingcentres
+        })
+      })
+      .catch((err) => {
+        console.log(err)
+      });
+
   }
 
   render() {
-    console.log(this.state.userDetails.postcode);
     return (
       <View style={styles.container}>
         <MapView
           style={styles.map}
           region={this.state.region}
         >
-          {/*<MapView.Marker coordinate={this.state.coordinate}></MapView.Marker>*/}
-          {/*{this.state.markers.map((marker, i) => {
+          {this.state.centres.map((centre, i) => {
             return (
               <MapView.Marker
                 key={i}
-                coordinate={{ latitude: marker.latitude, longitude: marker.longitude }}
-                title={marker.title}
+                coordinate={{ latitude: centre.latitude, longitude: centre.longitude }}
+                title={centre.title}
               />
             );
-          })}*/}
+          })}
 
         </MapView>
       </View >
