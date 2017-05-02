@@ -24,7 +24,7 @@ export default class Calendar extends Component {
       this.setState({
         userDetails: val
       });
-      this.getCollections(val.council);
+      if (val !== null) this.getCollections(val.council);
     });
   }
 
@@ -57,13 +57,13 @@ export default class Calendar extends Component {
                     <Text style={styles.date}>
                       {collection.day.toString()} {collection.month.toString()} {collection.year.toString()} ({collection.council.toString()})
                     </Text>
+                    <View style={styles.imageView}>
                     {collection.bins.map((bin, i) => {
                       return (
-                        <View style={styles.imageView}>
-                          <Image style={styles.binImage} source={{ uri: bin }}/>
-                        </View>
+                        <Image key={i} style={styles.binImage} source={{ uri: bin }}/>
                       )
                     })}
+                    </View>
                   </View>
                 )
               })}
