@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Vibration } from 'react-native';
 import Camera from 'react-native-camera';
 import axios from 'axios';
 import _ from 'underscore';
@@ -14,6 +14,7 @@ export default class Barcode extends Component {
     scanned[data.data] = true;
     let EAN = data.data;
     this.props.navigation.navigate('Recycable', {code: EAN});
+    Vibration.vibrate();
   }
   render () {
     return (

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button, AsyncStorage, Image } from 'react-native';
+import { StyleSheet, Text, View, Button, AsyncStorage, Image, Vibration } from 'react-native';
 import { Form, InputField } from 'react-native-form-generator';
 import { Restart } from 'react-native-restart';
 // import { postcodeToCouncil } from '../helpers/postcodeToCouncil';
@@ -27,10 +27,12 @@ export default class Home extends Component {
   onButtonPress() {
     if (this.state.postcode === '') return alert('Please enter a postcode');
     this.postcodeToCouncil(this.state.postcode);
+    Vibration.vibrate();
   }
 
   onButtonClear() {
     AsyncStorage.clear();
+    Vibration.vibrate();
     Restart();
   }
 
@@ -57,6 +59,7 @@ export default class Home extends Component {
         alert(err);
       });
   }
+  watchID: ?number = null;
 
   componentDidMount () {
     AsyncStorage.getItem('userDetails', (err, result) => {
@@ -64,6 +67,17 @@ export default class Home extends Component {
       this.setState({
         userDetails: val
       });
+    });
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        console.log(position);
+      },
+      (error) => console.log(JSON.stringify(error)),
+      {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
+    );
+    this.watchID = navigator.geolocation.watchPosition((position) => {
+      console.log(position)
     });
   }
 

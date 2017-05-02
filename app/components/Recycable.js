@@ -41,6 +41,7 @@ export default class Recycable extends Component {
         });
       })
       .catch(err => {
+        console.log(err);
         this.props.navigation.navigate('ProductSubmit', {code: this.props.navigation.state.params.code});
       });
   }
