@@ -35,7 +35,6 @@ export default class Calendar extends Component {
         this.setState({
           collections: res.data.collections
         });
-        console.log(this.state.collections[5].bins[2]);
       })
       .catch((err) => {
         alert(err);

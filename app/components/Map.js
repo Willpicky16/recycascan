@@ -38,7 +38,7 @@ export default class Map extends Component {
             })
           })
           .catch((err) => {
-            console.log(err)
+            alert(err);
           });
       });
     });
@@ -50,12 +50,11 @@ export default class Map extends Component {
         })
       })
       .catch((err) => {
-        console.log(err)
+        alert(err);
       });
   }
 
   render() {
-    console.log(this.state);
     return (
       <View style={styles.container}>
         <MapView

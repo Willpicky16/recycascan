@@ -32,17 +32,15 @@ export default class Recycable extends Component {
               bin: res.data.bins[0].bin,
               loading: false
             })
-            console.log(this.state);
           })
           .catch((err) => {
-            console.log(err);
+            alert(err);
           })
         this.setState({
           product: res.data.product
         });
       })
       .catch(err => {
-        console.log(err);
         this.props.navigation.navigate('ProductSubmit', {code: this.props.navigation.state.params.code});
       });
   }
