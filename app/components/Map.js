@@ -9,8 +9,8 @@ export default class Map extends Component {
     this.state = {
       userDetails: {},
       region: {
-        latitude: 0,
-        longitude: 0,
+        latitude: 53.4808,
+        longitude: 2.2426,
         latitudeDelta: 0.0922,
         longitudeDelta: 0.0421
       },
@@ -65,6 +65,8 @@ export default class Map extends Component {
                 key={i}
                 coordinate={{ latitude: centre.latitude, longitude: centre.longitude }}
                 title={centre.name}
+                image={require('../images/pin.png')}
+                pinColor={'#00c60e'}
               />
             );
           })}
