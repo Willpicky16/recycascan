@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button, AsyncStorage } from 'react-native';
+import { StyleSheet, Text, View, Button, AsyncStorage, Image } from 'react-native';
 import { Form, InputField } from 'react-native-form-generator';
 import { Restart } from 'react-native-restart';
 // import { postcodeToCouncil } from '../helpers/postcodeToCouncil';
@@ -70,6 +70,7 @@ export default class Home extends Component {
   render () {
     if (this.state.userDetails === null) return (
       <View style={styles.container}>
+        <Image style={styles.logo} source={require('../images/recycascan.png')}/>
         <Text style={styles.title}>Welcome to RecycaScan</Text>
         <Form label="Add new product form" ref="form" onChange={this.handleFormChange.bind(this)}>
           <InputField ref="postcode" placeholder="Postcode" helpText="Enter your postcode" />
@@ -96,7 +97,12 @@ const styles = StyleSheet.create({
     fontSize: 30
   },
   title: {
+    paddingTop: 40,
     fontSize: 20,
     color: 'green'
+  },
+  logo: {
+    width: 200,
+    height: 100
   }
 });
