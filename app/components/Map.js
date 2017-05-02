@@ -1,42 +1,75 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, AsyncStorage } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
+import axios from 'axios';
 
 export default class Map extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      markers: [{
-        title: 'Longley Lane',
-        latitude: 53.3977763,
-        longitude: -2.248374799999965
-      }]
+      userDetails: {},
+      region: {
+        latitude: 0,
+        longitude: 0,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421
+      },
+      centres: []
     }
   }
+  componentDidMount() {
+    AsyncStorage.getItem('userDetails', (err, result) => {
+      let val = JSON.parse(result);
+      this.setState({
+        userDetails: val
+      }, () => {
+        axios
+          .get(`http://postcodes.io/postcodes/${this.state.userDetails.postcode}`)
+          .then((res) => {
+            this.setState({
+              region: {
+                latitude: res.data.result.latitude,
+                longitude: res.data.result.longitude,
+                latitudeDelta: 0.0922,
+                longitudeDelta: 0.0421
+              }
+            })
+          })
+          .catch((err) => {
+            console.log(err)
+          });
+      });
+    });
+    axios
+      .get('https://vast-eyrie-43528.herokuapp.com/api/recyclingcentres')
+      .then((res) => {
+        this.setState ({
+          centres: res.data.recyclingcentres
+        })
+      })
+      .catch((err) => {
+        console.log(err)
+      });
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <MapView
           style={styles.map}
-          initialRegion={{
-            latitude: 53.3977763,
-            longitude: -2.248374799999965,
-            latitudeDelta: 0.5,
-            longitudeDelta: 0.5,
-          }}
+          region={this.state.region}
         >
-          {this.state.markers.map((marker, i) => {
+          {this.state.centres.map((centre, i) => {
             return (
               <MapView.Marker
                 key={i}
-                coordinate={{ latitude: marker.latitude, longitude: marker.longitude }}
-                title={marker.title}
+                coordinate={{ latitude: centre.latitude, longitude: centre.longitude }}
+                title={centre.name}
               />
             );
           })}
-
         </MapView>
-      </View>
+      </View >
     );
   }
 }
