@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, AsyncStorage } from "react-native";
+import { StyleSheet, Text, View, AsyncStorage, Image } from "react-native";
 import axios from "axios";
 
 const ROOT = 'https://world.openfoodfacts.org/api/v0/product/';
@@ -55,25 +55,14 @@ export default class Recycable extends Component {
       );
     return (
       <View style={styles.container}>
-        <Text style={styles.subtitle}>{this.state.product.product_name} ({this.state.product.code})</Text>
-        <Text style={styles.subtitle}>
-          Put in {this.state.bin} bin!
-        </Text>
+        <Text style={styles.title}>{this.state.product.product_name}</Text>
+        <View>
+          <Image style={styles.binImage} source={{ uri: this.state.bin }}/>
+        </View>
       </View>
     );
   }
 }
-
-// function getBinColour () {
-//   axios
-//     .get(`${BINROOT}?packaging=${res.data.product.packaging}&council=${this.state.council}`)
-//     .then((res) => {
-//       console.log(res);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     })
-// }
 
 const styles = StyleSheet.create({
   container: {
@@ -82,14 +71,15 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   title: {
-    color: "blue",
-    fontSize: 25
-  },
-  subtitle: {
-    fontSize: 20
+    fontSize: 30,
+    paddingBottom: 20
   },
   loading: {
     color: "red",
     fontSize: 30
+  },
+  binImage: {
+    height: 200,
+    width: 130
   }
 });
