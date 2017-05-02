@@ -50,7 +50,6 @@ export default class Map extends Component {
       .catch((err) => {
         console.log(err)
       });
-
   }
 
   render() {
@@ -65,11 +64,10 @@ export default class Map extends Component {
               <MapView.Marker
                 key={i}
                 coordinate={{ latitude: centre.latitude, longitude: centre.longitude }}
-                title={centre.title}
+                title={centre.name}
               />
             );
           })}
-
         </MapView>
       </View >
     );
