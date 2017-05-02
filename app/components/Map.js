@@ -1,31 +1,58 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, AsyncStorage } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
+import axios from 'axios';
 
 export default class Map extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      markers: [{
-        title: 'Longley Lane',
-        latitude: 53.3977763,
-        longitude: -2.248374799999965
-      }]
+      userDetails: {},
+      region: {
+        latitude: 0,
+        longitude: 0,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421
+      }
     }
   }
+  componentDidMount() {
+    AsyncStorage.getItem('userDetails', (err, result) => {
+      let val = JSON.parse(result);
+      this.setState({
+        userDetails: val
+      }, () => {
+        axios
+          .get(`http://postcodes.io/postcodes/${this.state.userDetails.postcode}`)
+          .then((res) => {
+            console.log(res.data.result.latitude);
+            console.log(res.data.result.longitude);
+            this.setState({
+              region: {
+                latitude: res.data.result.latitude,
+                longitude: res.data.result.longitude,
+                latitudeDelta: 0.0922,
+                longitudeDelta: 0.0421
+              }
+            })
+          })
+          .catch((err) => {
+            console.log(err)
+          });
+      });
+    });
+  }
+
   render() {
+    console.log(this.state.userDetails.postcode);
     return (
       <View style={styles.container}>
         <MapView
           style={styles.map}
-          initialRegion={{
-            latitude: 53.3977763,
-            longitude: -2.248374799999965,
-            latitudeDelta: 0.5,
-            longitudeDelta: 0.5,
-          }}
+          region={this.state.region}
         >
-          {this.state.markers.map((marker, i) => {
+          {/*<MapView.Marker coordinate={this.state.coordinate}></MapView.Marker>*/}
+          {/*{this.state.markers.map((marker, i) => {
             return (
               <MapView.Marker
                 key={i}
@@ -33,10 +60,10 @@ export default class Map extends Component {
                 title={marker.title}
               />
             );
-          })}
+          })}*/}
 
         </MapView>
-      </View>
+      </View >
     );
   }
 }
