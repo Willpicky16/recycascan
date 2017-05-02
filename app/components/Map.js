@@ -7,12 +7,14 @@ export default class Map extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userDetails: {},
+      userDetails: {
+        postcode: 'M11 3JA'
+      },
       region: {
         latitude: 53.4808,
-        longitude: 2.2426,
-        latitudeDelta: 0.0922,
-        longitudeDelta: 0.0421
+        longitude: -2.2426,
+        latitudeDelta: 0.5,
+        longitudeDelta: 0.5
       },
       centres: []
     }
@@ -20,7 +22,7 @@ export default class Map extends Component {
   componentDidMount() {
     AsyncStorage.getItem('userDetails', (err, result) => {
       let val = JSON.parse(result);
-      this.setState({
+      if (val !== null) this.setState({
         userDetails: val
       }, () => {
         axios
@@ -36,7 +38,7 @@ export default class Map extends Component {
             })
           })
           .catch((err) => {
-            console.log(err)
+            alert(err);
           });
       });
     });
@@ -48,7 +50,7 @@ export default class Map extends Component {
         })
       })
       .catch((err) => {
-        console.log(err)
+        alert(err);
       });
   }
 
