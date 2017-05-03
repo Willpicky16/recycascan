@@ -54,7 +54,9 @@ export default class Recycable extends Component {
       );
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>{this.state.product.product_name}</Text>
+        <Image style={styles.logo} source={require('../images/recycascan.png')}/>
+        <Text style={styles.recycle}>{this.state.product.product_name}</Text>
+        <Text style={styles.title}>Gets recycled here</Text>
         <View>
           <Image style={styles.binImage} source={{ uri: this.state.bin }}/>
         </View>
@@ -67,18 +69,30 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: '#ddf4c5'
   },
   title: {
-    fontSize: 30,
-    paddingBottom: 20
+    marginBottom: 30,
+    fontSize: 20,
+    color: '#004400',
   },
   loading: {
     color: "red",
     fontSize: 30
   },
   binImage: {
-    height: 200,
-    width: 130
+    height: 300,
+    width: 195
+  },
+  logo: {
+    marginBottom: 20,
+    width: 100,
+    height: 50
+  },
+  recycle: {
+    fontSize: 20,
+    color: '#004400',
+    fontWeight: 'bold'
   }
 });
