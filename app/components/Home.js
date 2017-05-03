@@ -59,7 +59,6 @@ export default class Home extends Component {
         alert(err);
       });
   }
-  watchID: ?number = null;
 
   componentDidMount () {
     AsyncStorage.getItem('userDetails', (err, result) => {

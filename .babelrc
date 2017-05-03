@@ -1,3 +1,13 @@
 {
-"presets": ["react-native"]
+  "presets": [
+    "react-native",
+    "es2015"
+  ],
+  "env": {
+    "mocha": {
+      "plugins": [
+        "rewire"
+      ]
+    }
+  }
 }
