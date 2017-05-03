@@ -17,13 +17,30 @@ export default class Barcode extends Component {
     Vibration.vibrate();
   }
   render () {
+      let {width, height} = Dimensions.get('window');
     return (
+      <View style={styles.preview}>
       <Camera
         ref={(cam) => {this.camera = cam;}}
         style={styles.preview}
         onBarCodeRead={code => this.scanBarcode(code)}
         aspect={Camera.constants.Aspect.fill}>
       </Camera>
+      <View
+        style={{
+          position: 'absolute',
+          top: -width/2 + 100,
+          left: -width/2 + 50,
+          right: -width/2 + 50,
+          bottom: -width/2 + 200,
+          backgroundColor: 'transparent',
+          borderWidth: width/2,
+          borderRadius: 30,
+          borderColor: 'black',
+          opacity: 0.6,
+        }}
+      />
+      </View>
     )
   }
 }
