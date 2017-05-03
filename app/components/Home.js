@@ -49,7 +49,7 @@ export default class Home extends Component {
       .then(function (res) {
         let value = {
           council: res.data.postcode.find(key => key.postcode === code).council,
-          postcode: str
+          postcode: str.toUpperCase()
           };
         AsyncStorage.setItem('userDetails', JSON.stringify(value));
         alert(`Postcode ${str} submitted`);
