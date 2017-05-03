@@ -4,11 +4,6 @@ import sinon from "sinon";
 import TestButton from "../app/components/TestButton";
 
 describe("<TestButton/>", () => {
-  it("should render", () => {
-    const button = shallow(<TestButton text="bananas" />);
-    expect(button.contains(TouchableHighlight)).to.equal(true);
-    expect(button.contains(Text)).to.equal(true);
-  });
   it("should capitalise text", () => {
     const button = shallow(<TestButton text="recycle" />);
     expect(button.find(Text).props().children).to.equal("RECYCLE");
