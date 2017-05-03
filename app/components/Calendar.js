@@ -50,11 +50,13 @@ export default class Calendar extends Component {
     return (
       <ScrollView>
         <View style={styles.container}>
+          <Image style={styles.logo} source={require('../images/recycascan.png')}/>
+          <Text style={styles.council}>{this.state.userDetails.council} bin collections</Text>
             {this.state.collections.map((collection, key) => {
                 return (
                   <View key={key}>
                     <Text style={styles.date}>
-                      {collection.day.toString()} {collection.month.toString()} {collection.year.toString()} ({collection.council.toString()})
+                      {collection.day.toString()} {collection.month.toString()} {collection.year.toString()}
                     </Text>
                     <View style={styles.imageView}>
                     {collection.bins.map((bin, i) => {
@@ -81,12 +83,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: '#ddf4c5'
   },
   date: {
-    paddingTop: 50,
-    paddingBottom: 10,
-    fontSize: 20
+    paddingTop: 10,
+    paddingBottom: 20,
+    fontSize: 20,
+    color: '#004400',
+    textAlign: 'center'
   },
   titleError: {
     fontSize: 20,
@@ -96,10 +101,27 @@ const styles = StyleSheet.create({
     color: 'blue'
   },
   binImage: {
-    height: 100,
-    width: 65
+    height: 150,
+    width: 97.5,
+    marginRight: 8,
+    marginLeft: 8
   },
   imageView: {
-    flexDirection: 'row'
-  }
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: 'row',
+    paddingBottom: 30
+  },
+  council: {
+    paddingTop: 20,
+    paddingBottom: 10,
+    fontSize: 20,
+    color: '#004400',
+    fontWeight: 'bold'
+  },
+  logo: {
+    marginTop: 30,
+    width: 100,
+    height: 50
+  },
 });
