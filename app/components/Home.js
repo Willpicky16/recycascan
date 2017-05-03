@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button, AsyncStorage, Image, Vibration } from 'react-native';
+import { StyleSheet, Text, View, Button, AsyncStorage, Image, Vibration, TouchableNativeFeedback } from 'react-native';
 import { Form, InputField } from 'react-native-form-generator';
 import { Restart } from 'react-native-restart';
 // import { postcodeToCouncil } from '../helpers/postcodeToCouncil';
@@ -52,7 +52,7 @@ export default class Home extends Component {
           postcode: str
           };
         AsyncStorage.setItem('userDetails', JSON.stringify(value));
-        alert(`Postcode ${str} submitted`);
+        // alert(`Postcode ${str} submitted`);
         Restart();
       })
       .catch(function (err) {
@@ -85,38 +85,77 @@ export default class Home extends Component {
     if (this.state.userDetails === null) return (
       <View style={styles.container}>
         <Image style={styles.logo} source={require('../images/recycascan.png')}/>
-        <Text style={styles.title}>Welcome to RecycaScan</Text>
+        <Text style={styles.title}>Enter your postcode to begin</Text>
         <Form label="Add new product form" ref="form" onChange={this.handleFormChange.bind(this)}>
-          <InputField ref="postcode" placeholder="Postcode" helpText="Enter your postcode" />
+          <InputField ref="postcode" placeholder="Postcode" helpText="                           "/>
         </Form>
-        <Button title="Submit" onPress={this.onButtonPress.bind(this)} color="#841584" accessibilityLabel="Submit"/>
+        <TouchableNativeFeedback
+            onPress={this.onButtonPress.bind(this)}
+            background={TouchableNativeFeedback.SelectableBackground()}
+            accessibilityLabel="Submit">
+          <View style={styles.button} >
+            <Text style={styles.buttonText}>SUBMIT</Text>
+          </View>
+        </TouchableNativeFeedback>
       </View>
     )
     return (
       <View style={styles.container}>
-        <Text style={styles.userDetailsTitle}>{this.state.userDetails.council} ({this.state.userDetails.postcode})</Text>
-        <Button title="Clear" onPress={this.onButtonClear.bind(this)} color="red" accessibilityLabel="Submit"/>
+        <Image style={styles.logo} source={require('../images/recycascan.png')}/>
+        <Text style={styles.title}> My postcode</Text>
+        <Text style={styles.postcode}>{this.state.userDetails.postcode}</Text>
+        <TouchableNativeFeedback
+            onPress={this.onButtonClear.bind(this)}
+            background={TouchableNativeFeedback.SelectableBackground()}
+            accessibilityLabel="Edit">
+          <View style={styles.button} >
+            <Text style={styles.buttonText}>EDIT</Text>
+          </View>
+        </TouchableNativeFeedback>
       </View>
     )
   }
 }
 
+// {this.state.userDetails.council}
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: '#A3D860'
   },
   userDetailsTitle: {
-    fontSize: 30
+    paddingBottom: 20,
+    fontSize: 20,
+    color: '#004400'
+  },
+  postcode: {
+    paddingBottom: 40,
+    fontSize: 50,
+    color: '#004400',
+    fontWeight: '300'
   },
   title: {
-    paddingTop: 40,
+    paddingTop: 60,
+    paddingBottom: 10,
     fontSize: 20,
-    color: 'green'
+    color: '#004400'
   },
   logo: {
     width: 200,
     height: 100
+  },
+  button: { 
+    height: 40,
+    width: 200,
+    borderRadius: 5,
+    backgroundColor: '#004400'
+  },
+  buttonText: {
+    color: '#fff', 
+    padding: 10, 
+    textAlign: "center"
   }
 });
