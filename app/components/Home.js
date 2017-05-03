@@ -12,7 +12,7 @@ export default class Home extends Component {
       postcode: '',
       userDetails: {
         council: '',
-        council: ''
+        postcode: ''
       }
     }
     this.postcodeToCouncil = this.postcodeToCouncil.bind(this);
