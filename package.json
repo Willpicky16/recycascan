@@ -9,7 +9,7 @@
     "dev": "node server/server.js",
     "seed": "node server/seed/seed.js",
     "lint": "eslint ./*",
-    "jest": "jest"
+    "jest": "jest --watch --coverage"
   },
   "dependencies": {
     "async": "^2.3.0",

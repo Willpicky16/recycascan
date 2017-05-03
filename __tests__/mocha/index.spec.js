@@ -1,5 +1,5 @@
-// import React, { Component } from "react-native";
 // import App from "../../app/index.js";
+// import { Tabs } from '../../app/config/router';
 // import './testUtils/mocha';
 
 // describe("<App/>", () => {

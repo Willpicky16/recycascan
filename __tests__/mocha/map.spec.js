@@ -1,19 +1,19 @@
 // import Map from "../../app/components/Map";
-// import './testIndex';
+// import './testutils/mocha';
 
 // describe("<Map/>", () => {
 
 //   const defaultState = {
-//     // userDetails: {
-//     //   postcode: 'M11 3JA'
-//     // },
-//     // region: {
-//     //   latitude: 53.4808,
-//     //   longitude: -2.2426,
-//     //   latitudeDelta: 0.5,
-//     //   longitudeDelta: 0.5
-//     // },
-//     // centres: []
+//     userDetails: {
+//       postcode: 'M11 3JA'
+//     },
+//     region: {
+//       latitude: 53.4808,
+//       longitude: -2.2426,
+//       latitudeDelta: 0.5,
+//       longitudeDelta: 0.5
+//     },
+//     centres: []
 //   };
 
 //   beforeEach(function () {
@@ -23,12 +23,4 @@
 //   it("has default state", () => {
 //     expect(component.state().to.equal(defaultState));
 //   });
-
-
-
-
-
-
-
-
 // });
