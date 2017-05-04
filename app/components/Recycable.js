@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, AsyncStorage, Image } from "react-native";
 import axios from "axios";
+import { Restart } from 'react-native-restart';
 
 const ROOT = 'https://world.openfoodfacts.org/api/v0/product/';
 const BINROOT = 'https://vast-eyrie-43528.herokuapp.com/api/bins';
@@ -41,7 +42,11 @@ export default class Recycable extends Component {
         });
       })
       .catch(err => {
-        console.log(err);
+        console.log(this.state);
+        if (this.state.userDetails === null) {
+          alert('You need to enter a postcode');
+          Restart();
+        }
         this.props.navigation.navigate('ProductSubmit', {code: this.props.navigation.state.params.code});
       });
   }
