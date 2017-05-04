@@ -3,8 +3,6 @@ import { StyleSheet, Text, View, ScrollView, AsyncStorage, Image } from "react-n
 import axios from 'axios';
 import moment from 'moment';
 
-currentTimestamp = moment().format('X');
-
 export default class Calendar extends Component {
   constructor(props) {
     super(props);
@@ -41,7 +39,7 @@ export default class Calendar extends Component {
     let futureBins = [];
     collections.map((collection, i) => {
       let collectionTimestamp = moment(`${collection.day} ${collection.month} ${collection.year} 24:00`, 'DD MMMM YYYY HH:mm').format('X');
-      if (collectionTimestamp > currentTimestamp) {
+      if (collectionTimestamp > moment().format('X')) {
         futureBins.push(collection);
         this.setState({
           collections: futureBins
