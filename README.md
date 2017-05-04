@@ -20,18 +20,39 @@ Custom Packages
 - react-navigation
 - react-native-form-generator
 - react-native-camera
+- react-native-maps
+- react-native-restart
+- react-native-vector-icons
 - axios
+- async
+- moment
+- underscore
+
+Babel Packages
+- babel-plugin-module-resolver
+- babel-preset-airbnb
+- babel-preset-react-native
+- babel-jest
+- babel-core
+- babel-preset-react-native
 
 Testing Packages
 - jest
 - react-test-renderer
-- babel-jest
+- bluebird
+- chai
+- chai-enzyme
+- enzyme
+- mocha
 - pre-commit
+- react-test-renderer
+- sinon
 
 React Packages
 - react
 - react-native
-- babel-preset-react-native
+- react-dom
+- react-native-mock
 
 ## Git workflow
 
