@@ -43,7 +43,8 @@ export default class Calendar extends Component {
 
   render() {
     if (this.state.userDetails === null) return (
-      <View style={styles.containerError}>
+      <View style={styles.container}>
+        <Image style={styles.logoError} source={require('../images/recycascan.png')}/>
         <Text style={styles.titleError}>Please enter a postcode</Text>
       </View>
     )
@@ -94,8 +95,9 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   titleError: {
+    marginBottom: 30,
     fontSize: 20,
-    color: 'red'
+    color: '#004400',
   },
   bins: {
     color: 'blue'
@@ -121,6 +123,12 @@ const styles = StyleSheet.create({
   },
   logo: {
     marginTop: 30,
+    width: 100,
+    height: 50
+  },
+  logoError: {
+    marginTop: 30,
+    marginBottom: 30,
     width: 100,
     height: 50
   },
