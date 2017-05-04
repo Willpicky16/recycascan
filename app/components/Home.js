@@ -59,7 +59,6 @@ export default class Home extends Component {
         alert(err);
       });
   }
-  watchID: ?number = null;
 
   componentDidMount () {
     AsyncStorage.getItem('userDetails', (err, result) => {
@@ -67,17 +66,6 @@ export default class Home extends Component {
       this.setState({
         userDetails: val
       });
-    });
-
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        console.log(position);
-      },
-      (error) => console.log(JSON.stringify(error)),
-      {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
-    );
-    this.watchID = navigator.geolocation.watchPosition((position) => {
-      console.log(position)
     });
   }
 
@@ -147,15 +135,15 @@ const styles = StyleSheet.create({
     width: 200,
     height: 100
   },
-  button: { 
+  button: {
     height: 40,
     width: 200,
     borderRadius: 5,
     backgroundColor: '#004400'
   },
   buttonText: {
-    color: '#fff', 
-    padding: 10, 
+    color: '#fff',
+    padding: 10,
     textAlign: "center"
   }
 });

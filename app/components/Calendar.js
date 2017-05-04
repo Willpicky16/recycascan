@@ -3,10 +3,7 @@ import { StyleSheet, Text, View, ScrollView, AsyncStorage, Image } from "react-n
 import axios from 'axios';
 import moment from 'moment';
 
-let day = moment().format('D')
-let month = moment().format('MMMM');
-let year = moment().format('YYYY');
-console.log(`${day} ${month} ${year}`);
+currentTimestamp = moment().format('X');
 
 export default class Calendar extends Component {
   constructor(props) {
@@ -16,6 +13,7 @@ export default class Calendar extends Component {
       userDetails: {}
     };
     this.getCollections = this.getCollections.bind(this);
+    this.getTimeStamp = this.getTimeStamp.bind(this);
   }
 
   componentDidMount() {
@@ -32,13 +30,24 @@ export default class Calendar extends Component {
     axios
       .get(`https://vast-eyrie-43528.herokuapp.com/api/collections?council=${council}`)
       .then((res) => {
-        this.setState({
-          collections: res.data.collections
-        });
+        this.getTimeStamp(res.data.collections);
       })
       .catch((err) => {
         alert(err);
       });
+  }
+
+  getTimeStamp (collections) {
+    let futureBins = [];
+    collections.map((collection, i) => {
+      let collectionTimestamp = moment(`${collection.day} ${collection.month} ${collection.year} 24:00`, 'DD MMMM YYYY HH:mm').format('X');
+      if (collectionTimestamp > currentTimestamp) {
+        futureBins.push(collection);
+        this.setState({
+          collections: futureBins
+        })
+      }
+    });
   }
 
   render() {
