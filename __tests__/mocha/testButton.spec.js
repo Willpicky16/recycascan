@@ -1,7 +1,6 @@
 import React, { Text, TouchableHighlight } from "react-native";
-import { shallow } from "enzyme";
-import sinon from "sinon";
-import TestButton from "../app/components/TestButton";
+import TestButton from "../../app/components/TestButton";
+import '../testutils/mocha';
 
 describe("<TestButton/>", () => {
   it("should capitalise text", () => {

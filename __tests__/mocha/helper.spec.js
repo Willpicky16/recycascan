@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const postcodeToCouncil = require('../app/helpers/postcodeToCouncil');
+const postcodeToCouncil = require('../../app/helpers/postcodeToCouncil');
 
 describe('postcodeToCouncil', function () {
     it('is a function', function () {
