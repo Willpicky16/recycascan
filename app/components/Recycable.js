@@ -35,7 +35,7 @@ export default class Recycable extends Component {
             })
           })
           .catch((err) => {
-            alert(err);
+            alert('This product is not recycable');
           })
         this.setState({
           product: res.data.product

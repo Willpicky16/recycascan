@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button, TouchableNativeFeedback, Image } from 'react-native';
 import { Form, InputField, LinkField } from 'react-native-form-generator';
 import axios from 'axios';
+import { Restart } from 'react-native-restart';
 
 const ROOT = 'https://world.openfoodfacts.org/api/v0/product/';
 const POSTROOT = 'https://world.openfoodfacts.org/cgi/product_jqm2.pl';
@@ -25,9 +26,10 @@ export default class ProductSubmit extends Component {
       .get(`${POSTROOT}?code=${this.props.navigation.state.params.code}&product_name=${this.state.product_name}&packaging=${this.state.packaging}`)
       .then(res => {
         alert(`Product ${this.state.product_name} (${this.props.navigation.state.params.code}) added to database`);
+        Restart();
       })
       .catch(err => {
-        alert('Product could not be submitted, please try again!')
+        alert('Product could not be submitted, please try again!');
       });
   }
   render () {
@@ -72,15 +74,15 @@ const styles = StyleSheet.create({
     color: '#004400',
     fontWeight: 'bold'
   },
-  button: { 
+  button: {
     height: 40,
     width: 200,
     borderRadius: 5,
     backgroundColor: '#004400'
   },
   buttonText: {
-    color: '#fff', 
-    padding: 10, 
+    color: '#fff',
+    padding: 10,
     textAlign: "center"
   },
   logo: {
