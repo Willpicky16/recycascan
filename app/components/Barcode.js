@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Dimensions, Vibration } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Vibration, AsyncStorage, Image } from 'react-native';
 import Camera from 'react-native-camera';
 import axios from 'axios';
 import _ from 'underscore';
@@ -9,6 +9,19 @@ const ROOT = 'https://world.openfoodfacts.org/api/v0/product/';
 const scanned = {};
 
 export default class Barcode extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  componentDidMount() {
+    AsyncStorage.getItem('userDetails', (err, result) => {
+      let val = JSON.parse(result);
+      this.setState({
+        userDetails: val
+      });
+    });
+  }
   scanBarcode (data) {
     if (scanned[data.data]) return;
     scanned[data.data] = true;
@@ -17,6 +30,12 @@ export default class Barcode extends Component {
     Vibration.vibrate();
   }
   render () {
+    if (this.state.userDetails === null) return (
+      <View style={styles.containerMain}>
+        <Image style={styles.logoError} source={require('../images/recycascan.png')}/>
+        <Text style={styles.titleError}>Please enter a postcode</Text>
+      </View>
+    )
       let {width, height} = Dimensions.get('window');
     return (
       <View style={styles.preview}>
@@ -67,5 +86,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: Dimensions.get('window').height,
     width: Dimensions.get('window').width
+  },
+  containerMain: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: '#ddf4c5'
+  },
+  logoError: {
+    marginTop: 30,
+    marginBottom: 30,
+    width: 100,
+    height: 50
+  },
+  titleError: {
+    marginBottom: 30,
+    fontSize: 20,
+    color: '#004400',
   }
 });
