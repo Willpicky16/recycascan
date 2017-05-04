@@ -49,7 +49,8 @@ export default class Recycable extends Component {
     if (this.state.loading === true)
       return (
         <View style={styles.container}>
-          <Text style={styles.loading}>loading....</Text>
+          <Image source={require('../images/loading.gif')} style={{width: 100, height: 50 }}/>
+          
         </View>
       );
     return (
