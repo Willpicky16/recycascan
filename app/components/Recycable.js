@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     color: '#004400',
   },
   loading: {
-    color: "red",
+    color: '#004400',
     fontSize: 30
   },
   binImage: {
