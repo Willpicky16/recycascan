@@ -38,7 +38,7 @@ export default class Map extends Component {
             })
           })
           .catch((err) => {
-            alert(err);
+            alert('Sorry your postcode is unavailable');
           });
       });
     });

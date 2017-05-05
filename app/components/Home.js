@@ -56,7 +56,7 @@ export default class Home extends Component {
         Restart();
       })
       .catch(function (err) {
-        alert(err);
+        alert('Sorry, your postcode is not yet available!');
       });
   }
 
